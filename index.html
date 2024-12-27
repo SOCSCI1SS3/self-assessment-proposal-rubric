@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" id="pdfForm">
+
+<head>
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">	</script> 
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Sofia Sans">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    
+  <div class="formContainer">
+    
+	<form id="myform"> 
+		<input class="savePdfButton"
+      type="button"
+			value="Save PDF"
+			@click="savePdf">
+  <h1>Term project part 1: PAR proposal (20%)</h1>
+    
+<!-- instructions      -->
+    
+<p class="introParagraph">
+The "Term project part 1: proposal" involves a 2-sided assessment process, where you and I will evaluate your work. You will fill out the self-assessment rubric, and I will read your rubric to achieve a marking common ground.
+  </p>  
+    
+  <h3>
+    Instructions:
+  </h3>
+  
+    <ol>
+      
+      <li><b>Fill out the questions below as a team</b> - Please avoid leaving unanswered questions or typing things like “Nothing, everything was perfect” in the question regarding aspects to be improved. Doing this will lower your mark</li>
+      <li><b>Click the Save PDF button </b> at the top of the rubric</li>
+      <li><b>Save the PDF </b> in your computer</li>
+      <li><b>Upload the PDF </b>to the folder Term Project Part 1: Proposal on A2L (1 per team)</li>
+  </ol>
+
+    
+    
+<!-- name and IDs     -->
+		<label for="fullName"><h2>
+      
+      Name and ID number of group members:</h2></label>
+    
+    	<textarea id="fullName"
+				name="fullName"
+				placeholder=""
+        v-show="showTextareas"
+        v-model="fullname"></textarea>
+          <div v-show="showReflections" @click="editTextareas">
+        <p> {{ fullname }} </p>
+          </div>
+   
+<!--  Criterion 1    -->
+    <h2>
+      Criterion 1: Exploration of interesting and unique topics
+    </h2>
+    
+    
+<table>
+  <tr>
+    <th>
+  <input type="radio" 
+         id="criterion1-excellent" 
+         name="criterion1" 
+         value="Excellent (up to 5 points)">
+  <label for="criterion1-excellent">Excellent (up to 5 points)</label>
+    </th>
+    
+    <th>
+  <input type="radio" 
+         id="criterion1-good" 
+         name="criterion1"
+         value="Good (up to 4 points)" >
+  <label for="criterion1-good">Good (up to 4 points)</label>
+      </th>
+    
+    <th>
+  <input type="radio" 
+         id="criterion1-fair"
+         name="criterion1" 
+         value="Fair (up to 3 points)">
+  <label for="criterion1-fair">Fair (up to 3 points)</label>
+  </th>
+  <th>
+    <input type="radio" 
+         id="criterion1-poor"
+         name="criterion1" 
+         value="Poor (up to 2 points)">
+  <label for="criterion1-poor">Poor (up to 2 points)</label>
+    </th>
+    </tr>
+  
+  <tr>
+    <td>My assignment  presented a rather unique take on the topic and my team put a lot of effort into finding a topic that can very easily be studied through participatory action research </td>
+    
+    <td>My assignment  presented a unique take on the topic and my team put effort into finding a topic that can easily be studied through participatory action research </td>
+    
+    <td>My assignment presented a familiar take on the topic, OR my team did very little about finding a topic that could be studied through participatory action research </td>
+    
+    <td>My assignment presented a commonplace or trite take on the topic, and my team did very little to find a topic that could be studied through participatory action research.</td>
+  </tr>
+     </table>
+    
+    <table class="reflectionTable"> 
+		<tr>
+      <th> 
+        <label for="criterion1-reflection1">Mention some aspects that your team did to achieve the points above:</label> 
+      </th>
+      </tr>
+      <tr>
+        <td>
+        <textarea id="criterion1-reflection1"
+				name="criterion1"
+				placeholder=""
+        v-show="showTextareas"          
+        v-model="c1r1"></textarea>
+          <div v-show="showReflections" @click="editTextareas">
+        <p> {{ c1r1 }} </p>
+          </div>
+
+          </td>
+      </tr>
+	
+    	<tr>
+        <th>
+          <label for="criterion1-reflection2">Mention some aspects that your team could have done for the assignment to improve in this
+criterion:</label>
+        </th>
+      </tr>
+      <tr>
+        <td>
+		<textarea id="criterion1-reflection2"
+				name="criterion1"
+				placeholder=""
+        v-show="showTextareas"          
+        v-model="c1r2"></textarea>
+      <div v-show="showReflections" @click="editTextareas">
+        <p> {{ c1r2 }} </p>
+          </div>
+        </td>
+      </tr>
+</table>
+    
+ <!--  Criterion 2    -->
+    <h2>
+      Criterion 2: Goals, actions, and/or questions you want to achieve/answer with your PAR project
+    </h2>
+    
+    
+<table>
+  <tr>
+    <th>
+  <input type="radio" 
+         id="criterion2-excellent" 
+         name="criterion2" 
+         value="Excellent (up to 5 points)">
+  <label for="criterion2-excellent">Excellent (up to 5 points)</label>
+    </th>
+    
+    <th>
+  <input type="radio" 
+         id="criterion2-good" 
+         name="criterion2"
+         value="Good (up to 4 points)">
+  <label for="criterion2-good">Good (up to 4 points)</label>
+      </th>
+    
+    <th>
+  <input type="radio" 
+         id="criterion2-fair"
+         name="criterion2" 
+         value="Fair (up to 3 points)">
+  <label for="criterion2-fair">Fair (up to 3 points)</label>
+  </th>
+  <th>
+    <input type="radio" 
+         id="criterion2-poor"
+         name="criterion2" 
+         value="Poor (up to 2 points)">
+  <label for="criterion2-poor">Poor (up to 2 points)</label>
+    </th>
+    </tr>
+  
+  <tr>
+    <td>My proposal proposes highly innovative goals, actions, and/or research questions. These are written in a highly clear, engaging and logical way </td>
+    
+    <td>My proposal proposes innovative goals, actions, and/or research questions. These are written in a clear, engaging and logical way </td>
+    
+    <td>My proposal proposes interesting yet commonplace goals, actions, and/or research questions, OR these could have been written in a more clear, engaging and logical way</td>
+    
+    <td>My proposal proposes commonplace goals, actions, and/or research questions, and these could have been written in a more clear, engaging and logical way</td>
+  </tr>
+     </table>
+    
+    <table class="reflectionTable"> 
+		<tr>
+      <th> 
+        <label for="criterion2-reflection1">Mention some aspects that your team did to achieve the points above:</label> 
+      </th>
+      </tr>
+      <tr>
+        <td>
+        <textarea id="criterion2-reflection1"
+				name="criterion2"
+				placeholder=""
+        v-show="showTextareas"          
+        v-model="c2r1"></textarea>
+        <div v-show="showReflections" @click="editTextareas">
+        <p> {{ c2r1 }} </p>
+          </div>
+          </td>
+      </tr>
+	
+    	<tr>
+        <th>
+          <label for="criterion2-reflection2">Mention some aspects that your team could have done for the assignment to improve in this
+criterion:</label>
+        </th>
+      </tr>
+      <tr>
+        <td>
+		<textarea id="criterion2-reflection2"
+				name="criterion2"
+				placeholder=""
+        v-show="showTextareas"          
+        v-model="c2r2"></textarea>
+        <div v-show="showReflections" @click="editTextareas">
+        <p> {{ c2r2 }} </p>
+          </div>
+        </td>
+      </tr>
+</table>
+    
+    <!--  Criterion 3    -->
+    <h2>
+      Criterion 3: Background or context of the topic
+    </h2>
+    
+    
+<table>
+  <tr>
+    <th>
+  <input type="radio" 
+         id="criterion3-excellent" 
+         name="criterion3" 
+         value="Excellent (up to 5 points)">
+  <label for="criterion3-excellent">Excellent (up to 5 points)</label>
+    </th>
+    
+    <th>
+  <input type="radio" 
+         id="criterion3-good" 
+         name="criterion3"
+         value="Good (up to 4 points)">
+  <label for="criterion3-good">Good (up to 4 points)</label>
+      </th>
+    
+    <th>
+  <input type="radio" 
+         id="criterion3-fair"
+         name="criterion3" 
+         value="Fair (up to 3 points)">
+  <label for="criterion3-fair">Fair (up to 3 points)</label>
+  </th>
+  <th>
+    <input type="radio" 
+         id="criterion3-poor"
+         name="criterion3" 
+         value="Poor (up to 2 points)">
+  <label for="criterion3-poor">Poor (up to 2 points)</label>
+    </th>
+    </tr>
+  
+  <tr>
+    <td>My proposal does an excellent job contextualizing the topic by summarizing 3 sources in my own words. The summary is highly related to the goals, actions, and questions of my PAR project, and my proposal also includes a reference list in APA format </td>
+    
+    <td>My proposal does a good job of contextualizing the topic by summarizing 3 sources in my own words. The summary is related to the goals, actions, and questions of my PAR project, and my proposal also includes a reference list in APA format </td>
+    
+    <td>My proposal does a fair job of contextualizing the topic by summarizing 3 sources in my own words. The summary relates somewhat to my PAR project's goals, actions, and questions. My proposal includes a reference list in APA format </td>
+    
+    <td>My proposal could have contextualized the topic more through the summary of the source. The summary could have been more related to my PAR project's goals, actions, and questions. My proposal didn't include a reference list in APA format </td>
+  </tr>
+     </table>
+    
+    <table class="reflectionTable"> 
+		<tr>
+      <th> 
+        <label for="criterion3-reflection1">Mention some aspects that your team did to achieve the points above:</label> 
+      </th>
+      </tr>
+      <tr>
+        <td>
+        <textarea id="criterion3-reflection1"
+				name="criterion3"
+				placeholder=""
+        v-show="showTextareas"          
+        v-model="c3r1"></textarea>
+        <div v-show="showReflections" @click="editTextareas">
+        <p> {{ c3r1 }} </p>
+          </div>
+          </td>
+      </tr>
+	
+    	<tr>
+        <th>
+          <label for="criterion3-reflection2">Mention some aspects that your team could have done for the assignment to improve in this
+criterion:</label>
+        </th>
+      </tr>
+      <tr>
+        <td>
+		<textarea id="criterion3-reflection2"
+				name="criterion3"
+				placeholder=""
+        v-show="showTextareas"          
+        v-model="c3r2"></textarea>
+      <div v-show="showReflections" @click="editTextareas">
+        <p> {{ c3r2 }} </p>
+          </div>
+        </td>
+      </tr>
+</table>
+    
+        <!--  Criterion 4    -->
+    <h2>
+      Criterion 4: Effective team collaboration to gain new perspectives and reach a common goal
+    </h2>
+    
+    
+<table>
+  <tr>
+    <th>
+  <input type="radio" 
+         id="criterion4-excellent" 
+         name="criterion4" 
+         value="Excellent (up to 5 points)">
+  <label for="criterion4-excellent">Excellent (up to 5 points)</label>
+    </th>
+    
+    <th>
+  <input type="radio" 
+         id="criterion4-good" 
+         name="criterion4"
+         value="Good (up to 4 points)">
+  <label for="criterion4-good">Good (up to 4 points)</label>
+      </th>
+    
+    <th>
+  <input type="radio" 
+         id="criterion4-fair"
+         name="criterion4" 
+         value="Fair (up to 3 points)">
+  <label for="criterion4-fair">Fair (up to 3 points)</label>
+  </th>
+  <th>
+    <input type="radio" 
+         id="criterion4-poor"
+         name="criterion4" 
+         value="Poor (up to 2 points)">
+  <label for="criterion4-poor">Poor (up to 2 points)</label>
+    </th>
+    </tr>
+  
+  <tr>
+    <td>My assignment is the result of highly effective collaboration with my team members through excellent communication strategies and active listening </td>
+    
+    <td>My assignment was the result of very effective collaboration with my team members through good communication strategies and active listening </td>
+    
+    <td>My assignment was the result of effective collaboration with my team members through communication strategies and active listening </td>
+    
+    <td>My assignment could have benefitted from better communication and active listening
+ </td>
+  </tr>
+     </table>
+    
+    <table class="reflectionTable"> 
+		<tr>
+      <th> 
+        <label for="criterion4-reflection1">Mention some aspects that your team did to achieve the points above:</label> 
+      </th>
+      </tr>
+      <tr>
+        <td>
+        <textarea id="criterion4-reflection1"
+				name="criterion4"
+				placeholder=""
+        v-show="showTextareas"          
+        v-model="c4r1"></textarea>
+      <div v-show="showReflections" @click="editTextareas">
+        <p> {{ c4r1 }} </p>
+          </div>
+          </td>
+      </tr>
+	
+    	<tr>
+        <th>
+          <label for="criterion4-reflection2">Mention some aspects that your team could have done for the assignment to improve in this
+criterion:</label>
+        </th>
+      </tr>
+      <tr>
+        <td>
+		<textarea id="criterion4-reflection2"
+				name="criterion4"
+				placeholder=""
+        v-show="showTextareas"          
+        v-model="c4r2"></textarea>
+        <div v-show="showReflections" @click="editTextareas">
+        <p> {{ c4r2 }} </p>
+          </div>
+        </td>
+      </tr>
+</table>
+	</form> 
+  </div>
+  </div>
+      <script src="vue.js"></script> 
+
+  
+</body>
+
+</html>
