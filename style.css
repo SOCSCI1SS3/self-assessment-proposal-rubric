@@ -26,8 +26,8 @@ table, th, td {
 }
 
 th {
-background: linear-gradient(141deg, #443D48 0%, #1fc8db 51%, #443D48 100%);  
-color: white;
+background: #ffcc00;
+color: black;
 font-size: 1.25em;  
 }
 
@@ -46,19 +46,48 @@ td {
 [type="button"] {
 /*   width: 10em; */
 /*   height: 5em; */
-  background: linear-gradient(141deg, #443D48 0%, #1fc8db 51%, #443D48 100%); 
-  color: white;
+  background: #ffcc00;
+  color: black;
   font-family: "Sofia Sans"; 
   font-size: 2em;
   border-radius: 10px;
 }
 
 [type="button"]:hover {
-  background: linear-gradient(0deg, #443D48 0%, #1fc8db 51%, #443D48 100%);   color: white;
+  background: #ffcc00;
+  color: black;
+  cursor: pointer;
 }
+
+.titleplusintroplusinstructions {
+    display: flex;
+
+}
+
+.maintitle {
+ width: 50%;  
+}
+
 
 .reflectionTable {
   width: 100%;
+}
+
+.introParagraph {
+  background: none;
+  border: none;
+  min-height: auto;
+  height: auto;
+}
+
+.introplusinstructions {
+  padding: 1%;
+  width: 50%;
+  background: none;
+  border: 1px solid black;  
+  border-radius: 5px;
+  height: auto;
+  
 }
 
 .introParagraph {
